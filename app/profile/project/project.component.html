@@ -1,0 +1,32 @@
+<div class="section" id="projects">
+    <div class="container cc-education">
+        <div class="h4 text-center mb-4 title">Projects</div>
+
+        <pagination-controls (pageChange)="pageChanged($event)" class="text-center"></pagination-controls>
+        <div class="row" >
+            <ng-container  *ngFor="let project of projects| paginate: config ">
+                <div class="col-md-12 col-sm-6 animate-box" data-aos="fade-left">
+                    <div class="blog-entry">
+                        <div class="card" >
+                            
+                            <div class="card mb-0" class="card-body" >
+                                <h3 class="card-title" style="font-family: montserrat; ">{{project.title}}</h3>
+                                <h6 class="card-text" style="font-family: montserrat;">{{project.date}}</h6>
+
+                                <p class="card-text">{{project.desc}}</p>
+                                
+                                <h6 class="card-text" *ngIf="project.tech"><b>Technologies :</b> {{project.tech}} </h6>
+                               
+                                <a *ngIf="project.livedemo" href={{project.livedemo}} target="_blank" class="btn btn-primary  ml-2 mr-5" >More Details</a>
+                                <a *ngIf="project.githurl" href={{project.githurl}} target="_blank" class="btn btn-primary ">GithubLink</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        </div>
+
+        <pagination-controls (pageChange)="pageChanged($event)" class="text-center"></pagination-controls>
+    </div>
